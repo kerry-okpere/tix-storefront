@@ -1,6 +1,6 @@
 <template>
-  <div :class="['flex flex-wrap border-gray-200 py-4 max-w-2xl', borderBottom ? 'border-b border-t' : 'border-t']">
-    <div class="h-36 w-32 relative rounded bg-gray-200 mr-2">
+  <div :class="['flex flex-wrap border-gray-200 py-4', borderBottom ? 'border-b border-t' : 'border-t']">
+    <div :class="['relative rounded bg-gray-200 mr-2', isSmall ? 'h-24 w-20' : 'h-36 w-32']">
       <img class="h-full w-full rounded object-cover object-center" :src="image" :alt="`${name} image`">
     </div>
     <div class="flex-1 flex flex-col text-md text-gray-700 font-normal justify-between ml-2">
@@ -15,7 +15,7 @@
         </div>
         <p class="font-semibold">{{ money }}</p>
       </div>
-      <div class="flex justify-between pt-2 flex-wrap">
+      <div class="flex justify-between pt-2 flex-wrap" v-if="type == 'list:cart'">
         <NumericInput @add="$emit('add')" @reduce="$emit('reduce')" :modelValue="amount" :theme="theme" />
         <p class="cursor-pointer" :style="{color: theme}" @click="$emit('removeItem')">Remove</p>
       </div>
@@ -32,7 +32,7 @@ export default {
   props: {
     amount: {
       type: Number,
-      required: true
+      required: false
     },
     name: {
       type: String,
@@ -64,6 +64,17 @@ export default {
     inStockFlag: {
       type: Boolean,
       default: true
+    },
+    isSmall: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: 'list:cart',
+      validator: function(value){
+        return ['list:cart', 'list:checkout'].includes(value)
+      }
     }
   },
   setup(props) {
