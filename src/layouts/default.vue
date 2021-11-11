@@ -1,21 +1,27 @@
 <template>
-  <div>
-    <div v-if="error.user"> Error occured while fetching this user </div>
-    <div v-else-if="loading.user"> loading... </div>
-    <section v-else>
-      <header>
-          <h1>{{ user.storename }}</h1>
-          <h2>By {{ user.name }}</h2>
-          <p>{{ user.description }}</p>
-          <img :src="user.logo" alt="logo image">
+  <div class="relative">
+    <div v-if="error.user || loading.user" class="h-screen flex justify-center items-center"> 
+      <p v-if="error.user">Error occured while fetching this user </p>
+      <p v-else-if="loading.user">loading... </p>
+    </div>
+    <section v-else class="bg-gray-200">
+      <header class="pt-8 pb-24">
+          <div class="flex justify-between items-center max-w-5xl mx-auto">
+            <h2>By {{ user.name }}</h2>
+            <h1 class=" font-extrabold text-gray-700 text-2xl capitalize">
+              {{ user.storename }}
+            </h1>
+            <Badge :theme="user.brandColor" :value="0" />
+          </div>
+          <p class="text-center text-gray-700 my-6">{{ user.description }}</p>
+          <Search type="search" v-model="keyword" />
       </header>
-      <section>
-        <Search type="search" v-model="keyword"/>
-        <div v-if="error.products"> Error occured while fetching this user </div>
-        <div v-else-if="loading.products"> loading... </div>
-        <div v-else>
-          <Product v-for="product in products" :key="product.id" 
-          v-bind="product" :image="product.images[0]"/>
+      <section class="absolute bottom-0 inset-x-0 top-56">
+        <div class="px-24 py-8">
+          <!-- <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
+          v-bind="product" :image="product.images[0]" :theme="user.brandColor"/> -->
+          <Product v-for="num in 3" :key="num" @add="addToCart(product)"
+          v-bind="products[0]" :image="products[0].images[0]" :theme="user.brandColor"/>
         </div>
       </section>
     </section>
@@ -23,10 +29,11 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue'
+import { computed, reactive, toRefs } from 'vue'
 import { getData } from "@/utils/getData.js";
 import Search from '@/components/Search/index.vue'
 import Product from '@/components/Product/index.vue'
+import Badge from '@/components/Badge/index.vue'
 
 export default {
   setup(){
@@ -35,23 +42,26 @@ export default {
       products: [],
       loading: {
         user: false,
-        products: false
       },
       error: {
         user: false,
-        products: false
       },
-      keyword: ''
+      keyword: '',
+      
     })
+    const filteredProduct = computed(() => {
+        if(!state.keyword) return state.products
+        return state.products.filter(({name}) => name.toLowerCase().includes(state.keyword.toLowerCase()))
+      })
 
     // api method
-    const getUser = async () => {
+    const getStore = async () => {
       state.loading.user = true
       state.error.user = false
 
       try {
         state.user = await getData('http://localhost:3000/users')
-        console.log(state.user)
+        state.products = await getData('http://localhost:3000/products')
       } catch (error) {
         console.log(error)
         state.error.user = true
@@ -59,32 +69,24 @@ export default {
 
       state.loading.user = false
     }
-    const getProducts = async () => {
-      state.loading.products = true
-      state.error.products = false
-
-      try {
-        state.products = await getData('http://localhost:3000/products')
-        console.log(state.products)
-      } catch (error) {
-        console.log(error)
-        state.error.products = true
-      }
-
-      state.loading.products = false
+    const addToCart = product => {
+      // if product is in cart increase number 
+      // add a new product if not found 
     }
 
     // created
-    getUser()
-    getProducts()
+    getStore()
 
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      addToCart,
+      filteredProduct
     }
   },
   components: {
     Search,
     Product,
+    Badge
   }
 }
 </script>

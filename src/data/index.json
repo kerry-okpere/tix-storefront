@@ -5,7 +5,7 @@
         "name": "Kerry Okpere",
         "storename": "myShop",
         "slug": "my-shop",
-        "brandColor": "#2F29A3",
+        "brandColor": "#2563EB",
         "description": "A collection of custom, hand-made gifts from your friends at myShop.",
         "logo": "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/meta.png"
       },
