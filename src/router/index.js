@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
   {
@@ -15,6 +14,11 @@ const routes = [
     path: '/:id',
     name: 'Home',
     component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import('../views/Cart.vue')
   },
   {
     path: '/checkout',
