@@ -1,8 +1,8 @@
 <template>
   <div class="relative">
-    <div v-if="error.user || loading.user" class="h-screen flex justify-center items-center"> 
-      <p v-if="error.user">Error occured while fetching this user </p>
-      <p v-else-if="loading.user">loading... </p>
+    <div v-if="error || loading" class="h-screen flex justify-center items-center"> 
+      <p v-if="error">Error occured while fetching this user </p>
+      <p v-else-if="loading">loading... </p>
     </div>
     <section v-else class="bg-gray-200">
       <header class="pt-8 pb-24">
@@ -11,16 +11,16 @@
             <h1 class=" font-extrabold text-gray-700 text-2xl capitalize">
               {{ user.storename }}
             </h1>
-            <Badge :theme="user.brandColor" :value="0" />
+            <Badge :theme="user.brandColor" :value="$store.getters.countCart" @click="$router.push('/cart')" />
           </div>
           <p class="text-center text-gray-700 my-6">{{ user.description }}</p>
           <Search type="search" v-model="keyword" />
       </header>
       <section class="absolute bottom-0 inset-x-0 top-56">
-        <div class="px-24 py-8">
+        <div class="px-24 py-8 ">
           <!-- <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
           v-bind="product" :image="product.images[0]" :theme="user.brandColor"/> -->
-          <Product v-for="num in 3" :key="num" @add="addToCart(product)"
+          <Product v-for="num in 3" :key="num" @add="addToCart(products[0])"
           v-bind="products[0]" :image="products[0].images[0]" :theme="user.brandColor"/>
         </div>
       </section>
@@ -30,24 +30,20 @@
 
 <script>
 import { computed, reactive, toRefs } from 'vue'
-import { getData } from "@/utils/getData.js";
 import Search from '@/components/Search/index.vue'
 import Product from '@/components/Product/index.vue'
 import Badge from '@/components/Badge/index.vue'
+import { useStore } from 'vuex'
 
 export default {
   setup(){
+    const store = useStore() 
     const state = reactive({
-      user: {},
-      products: [],
-      loading: {
-        user: false,
-      },
-      error: {
-        user: false,
-      },
+      user: computed(() => store.state.user),
+      products: computed(() => store.state.products),
+      loading: false,
+      error: false,
       keyword: '',
-      
     })
     const filteredProduct = computed(() => {
         if(!state.keyword) return state.products
@@ -55,23 +51,32 @@ export default {
       })
 
     // api method
-    const getStore = async () => {
-      state.loading.user = true
-      state.error.user = false
+    const getStore = () => {
+      console.log(store.state)
+      if(Object.keys(store.state.user).length < 1 || store.state.products.length < 1) fetchStore()
+    }
+    const fetchStore = async () => {
+      state.loading = true
+      state.error = false
 
       try {
-        state.user = await getData('http://localhost:3000/users')
-        state.products = await getData('http://localhost:3000/products')
+        await store.dispatch('GET_USER')
+        await store.dispatch('GET_PRODUCTS')
       } catch (error) {
         console.log(error)
-        state.error.user = true
+        state.error = true
       }
 
-      state.loading.user = false
+      state.loading = false
     }
     const addToCart = product => {
-      // if product is in cart increase number 
-      // add a new product if not found 
+      const index = store.state.cart.findIndex(({id}) => id === product.id)
+      if(index >= 0) {
+        store.commit('increaseProductCount', product.id)
+      }else {
+        store.commit('addToCart', {...product, count: 1})
+      }
+      console.log(store.state.cart)
     }
 
     // created

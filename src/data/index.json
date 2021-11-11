@@ -1,14 +1,14 @@
 {
   "users": {
     "data": {
-        "id": 23,
-        "name": "Kerry Okpere",
-        "storename": "myShop",
-        "slug": "my-shop",
-        "brandColor": "#2563EB",
-        "description": "A collection of custom, hand-made gifts from your friends at myShop.",
-        "logo": "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/meta.png"
-      },
+      "id": 23,
+      "name": "Kerry Okpere",
+      "storename": "myShop",
+      "slug": "my-shop",
+      "brandColor": "#2563EB",
+      "description": "A collection of custom, hand-made gifts from your friends at myShop.",
+      "logo": "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/meta.png"
+    },
     "message": "successful"
   },
   "products": {
@@ -23,6 +23,7 @@
           "value": "22000",
           "currency": "NGN"
         },
+        "category": "bag",
         "images": [
           "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
           "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"

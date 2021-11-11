@@ -6,7 +6,7 @@ const routes = [
     redirect: { 
       name: 'Home',
       params: {
-        id: 'myShop'
+        id: 'my-shop'
       }
     }
   },
