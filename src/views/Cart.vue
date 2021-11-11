@@ -15,7 +15,7 @@
       <div class="flex flex-col items-stretch max-w-xl mx-auto" v-if="$store.state.cart.length">
         <ProductList class="w-full" v-for="(product, index) in $store.state.cart" :key="product.id" v-bind="product" 
         :amount="product.count" :theme="user.brandColor" :image="product.images[0]" :borderBottom="index === $store.state.cart.length-1"
-        @add="addQuanity(product)" @remove="reduceQuanity(product)" @removeItem="removeProduct(product)" />
+        @add="addQuanity(product)" @reduce="reduceQuanity(product)" @removeItem="removeProduct(product)" />
         <div class="flex justify-between py-12 w-full">
           <h4 class="font-bold">Subtotal</h4>
           <p>{{ formatter.format($store.getters.totalCart) }}</p>
@@ -31,11 +31,10 @@
 </template>
 <script>
 import ProductList from '@/components/ProductList/index.vue'
+import Button from '@/components/Button/index.vue'
 import { useStore } from 'vuex'
 import { computed, reactive, toRefs } from 'vue'
 import { formatter } from "@/utils/getData.js"
-import NumericInput from '@/components/NumericInput/index.vue'
-import Button from '@/components/Button/index.vue'
 
 export default {
   setup() {
@@ -81,7 +80,6 @@ export default {
   },
   components: {
     ProductList,
-    NumericInput,
     Button
   }
 }
