@@ -7,13 +7,14 @@
           <h1>{{ user.storename }}</h1>
           <h2>By {{ user.name }}</h2>
           <p>{{ user.description }}</p>
+          <img :src="user.logo" alt="logo image">
       </header>
       <section>
         <Search type="search" v-model="keyword"/>
         <div v-if="error.products"> Error occured while fetching this user </div>
         <div v-else-if="loading.products"> loading... </div>
         <div v-else>
-          <Products v-for="product in products" :key="product.id" 
+          <Product v-for="product in products" :key="product.id" 
           v-bind="product" :image="product.images[0]"/>
         </div>
       </section>
@@ -25,7 +26,7 @@
 import { reactive, toRefs } from 'vue'
 import { getData } from "@/utils/getData.js";
 import Search from '@/components/Search/index.vue'
-import Products from '@/components/Products/index.vue'
+import Product from '@/components/Product/index.vue'
 
 export default {
   setup(){
@@ -83,7 +84,7 @@ export default {
   },
   components: {
     Search,
-    Products
+    Product,
   }
 }
 </script>

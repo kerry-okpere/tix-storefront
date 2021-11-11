@@ -7,7 +7,7 @@
         "slug": "my-shop",
         "brandColor": "#2F29A3",
         "description": "A collection of custom, hand-made gifts from your friends at myShop.",
-        "logo": "https://storage.cloud.google.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/meta.png"
+        "logo": "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/meta.png"
       },
     "message": "successful"
   },
@@ -24,8 +24,8 @@
           "currency": "NGN"
         },
         "images": [
-          "https://storage.cloud.google.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg?_ga=2.117156998.-1823749509.1636437712",
-          "https://storage.cloud.google.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
         ]
       }
     ],

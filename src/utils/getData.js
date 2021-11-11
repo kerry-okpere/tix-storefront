@@ -4,7 +4,9 @@ const getData = async url => {
   const response = await request.json()  
   return response.data
 }
+const  formatter = new Intl.NumberFormat('en-NG', {    style: 'currency', currency: 'NGN'})
 
 export {
-  getData
+  getData,
+  formatter
 }
