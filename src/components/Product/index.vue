@@ -1,10 +1,11 @@
 <template>
-  <div class="h-48 w-48 relative rounded-xl bg-gray-200 shadow-sm m-1" @click="$router.push({ path: '/', query: { product: slug }})">
+  <div class="h-48 w-48 relative rounded-xl bg-gray-200 shadow-sm m-1">
+  <!-- @click="$router.push({ path: '/', query: { product: slug }})" -->
     <img class="h-full w-full rounded-lg object-cover object-center hover:opacity-75 transition" :src="image" :alt="`${name} image`">
     <div class="absolute bg-white rounded-md p-2 bottom-2 w-11/12 text-sm mx-auto inset-x-0">
       <p class="truncate text-xs text-gray-500">{{ name }}</p>
       <p class="text-sm font-bold truncate text-gray-700">{{ money }}</p>
-      <div class="absolute p-1.5 rounded-full -top-3 right-3" :style="{backgroundColor: theme}" @click="$emit('add')">
+      <div class="absolute p-1.5 rounded-full -top-3 right-3" :style="{backgroundColor: theme}" @click.stop="$emit('add')">
         <PlusIcon class="h-4 w-4 text-white"/>
       </div>
     </div>
