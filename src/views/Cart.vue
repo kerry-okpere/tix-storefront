@@ -4,16 +4,16 @@
       <p v-if="error">Error occured while fetching this user </p>
       <p v-else-if="loading">loading... </p>
     </div>
-    <section v-else class="flex-1">
+    <section v-else class="flex-1 px-4 md:px-0">
       <h1 class="text-4xl font-extrabold text-center mt-20 mb-12">Shopping Cart</h1>
-      <div v-if="$store.state.cart.length < 1" class="w-1/3 flex flex-col items-stretch mx-auto text-center py-32">
+      <div v-if="$store.state.cart.length < 1" class="md:w-1/3 flex flex-col items-stretch mx-auto text-center py-32">
         <p class="text-lg text-gray-700 py-8">Your Cart is Empty</p>
         <!-- use user info for link -->
         <Button title="Continue Shopping" @click="$router.push(`/${user.slug}`)" :theme="user.brandColor" />
       </div>
       
-      <div class="flex flex-col items-stretch max-w-xl mx-auto">
-        <ProductList class="" v-for="(product, index) in $store.state.cart" :key="product.id" v-bind="product" 
+      <div class="flex flex-col items-stretch max-w-xl mx-auto" v-if="$store.state.cart.length">
+        <ProductList class="w-full" v-for="(product, index) in $store.state.cart" :key="product.id" v-bind="product" 
         :amount="product.count" :theme="user.brandColor" :image="product.images[0]" :borderBottom="index === $store.state.cart.length-1"
         @add="addQuanity(product)" @remove="reduceQuanity(product)" @removeItem="removeProduct(product)" />
         <div class="flex justify-between py-12 w-full">

@@ -4,7 +4,7 @@
       <p v-if="error">Error occured while fetching this user </p>
       <p v-else-if="loading">loading... </p>
     </div>
-    <section v-else class="bg-gray-200">
+    <section v-else class="bg-gray-200 px-4">
       <header class="pt-8 pb-24">
           <div class="flex justify-between items-center max-w-5xl mx-auto">
             <h2>By {{ user.name }}</h2>
@@ -16,7 +16,7 @@
           <p class="text-center text-gray-700 my-6">{{ user.description }}</p>
           <Search type="search" v-model="keyword" />
       </header>
-      <section class="absolute bottom-0 inset-x-0 top-56">
+      <section class="absolute bottom-0 inset-x-0 top-56 px-4">
         <div class="px-24 py-8 ">
           <!-- <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
           v-bind="product" :image="product.images[0]" :theme="user.brandColor"/> -->
