@@ -3,7 +3,7 @@
     <img class="h-full w-full rounded-xl object-cover object-center hover:opacity-75 transition" :src="image" :alt="`${name} image`">
     <div class="absolute bg-white rounded-md p-2 bottom-2 w-11/12 text-sm mx-auto inset-x-0">
       <p class="truncate text-xs text-gray-500">{{ name }}</p>
-      <p class="text-sm font-bold truncate text-gray-700">{{ money }}</p>
+      <p class="text-sm font-bold truncate text-gray-700">{{ formatter.format(price.value) }}</p>
       <div class="absolute p-1.5 rounded-full -top-3 right-3" :style="{backgroundColor: theme}" @click.stop="$emit('add')">
         <PlusIcon class="h-4 w-4 text-white"/>
       </div>
@@ -12,7 +12,6 @@
 </template>
 <script>
 import { formatter } from "@/utils/getData.js";
-import { computed } from 'vue';
 import { PlusIcon } from '@heroicons/vue/outline'
 
 export default {
@@ -38,10 +37,9 @@ export default {
       default: '#FBBF24'
     }
   },
-  setup(props) {
-    const money = computed(() => formatter.format(props.price.value))
+  setup() {
     return {
-      money
+      formatter
     }
   },
   emits: ['add'],

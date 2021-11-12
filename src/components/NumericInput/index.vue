@@ -34,7 +34,7 @@ export default {
       handleClick
     }
   },
-  emits: ['update:modelValue', 'add', 'reduce'],
+  emits: ['add', 'reduce'],
   components: {
     PlusIcon, 
     MinusIcon 

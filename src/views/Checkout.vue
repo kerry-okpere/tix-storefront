@@ -60,17 +60,17 @@
         <Button class="w-full md:w-48 float-right mt-2" :title="btnLoading ? 'loading...' : 'Pay Now'" @click="showModal" :disabled="btnLoading" :theme="user.brandColor" />
       </form>
     </div>
-  </div>
-  <Modal :visible="visible" @close="continueShop" width="450px">
-    <div class="text-center py-10">
-      <CheckCircleIcon class="h-32 w-32 text-green-600 inline-block" />
-      <div class="pt-4 pb-6">
-        <p class="text-gray-700">Payment Successful</p>
-        <p class="text-xs text-gray-400">Thank You for your payment.</p>
+    <Modal :visible="visible" @close="continueShop" width="450px">
+      <div class="text-center py-10">
+        <CheckCircleIcon class="h-32 w-32 text-green-600 inline-block" />
+        <div class="pt-4 pb-6">
+          <p class="text-gray-700">Payment Successful</p>
+          <p class="text-xs text-gray-400">Thank You for your payment.</p>
+        </div>
+        <Button title="Continue Shopping" @click="continueShop" :disabled="btnLoading" :theme="user.brandColor" />
       </div>
-      <Button title="Continue Shopping" @click="continueShop" :disabled="btnLoading" :theme="user.brandColor" />
-    </div>
-  </Modal>
+    </Modal>
+  </div>
 </template>
 <script>
 import ProductList from '@/components/ProductList/index.vue'
@@ -110,7 +110,6 @@ export default {
 
         }
       }
-
     })
 
     const showModal = () => {
@@ -119,22 +118,22 @@ export default {
       setTimeout(() => {
         state.btnLoading = false
         state.visible = true
-      }, 2000);
+      }, 500);
     }
     const continueShop = () => {
       state.visible = true
       store.commit('clearCart')
     }
 
-    watch(() => store.state.cart, (newValue) => {
-      if (newValue.length < 1) router.push(`/my-shop`)
+    watch(() => store.state.cart, (cart) => {
+      if (cart.length < 1) router.push(`/my-shop`)
     }, { immediate: true });
 
     return {
       ...toRefs(state),
-      formatter,
       showModal,
-      continueShop
+      continueShop,
+      formatter
     }
   },
   components: {
