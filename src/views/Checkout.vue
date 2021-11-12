@@ -32,6 +32,11 @@
     </div>
     <div class="md:order-1 ">
       <form class="md:px-6 lg:px-10 xl:pr-32">
+        <div class="py-2.5 text-sm text-gray-700 flex space-x-1">
+          <router-link :to="`/${user.slug}`" :style="{color: user.brandColor}">Shop / </router-link> 
+          <router-link to="/cart" :style="{color: user.brandColor}"> Cart </router-link> 
+          <p class="text-gray-400"> / Checkout</p>
+        </div>
         <h2 class="text-lg font-semibold py-4 text-gray-700">Contact Information</h2>
         <Input v-model="customer.email" type="email" label="Email address"/>
         <div>
