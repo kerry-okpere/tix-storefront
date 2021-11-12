@@ -1,7 +1,6 @@
 <template>
-  <div class="h-48 w-48 relative rounded-xl bg-gray-300 shadow-sm m-1">
-  <!-- @click="$router.push({ path: '/', query: { product: slug }})" -->
-    <img class="h-full w-full rounded-lg object-cover object-center hover:opacity-75 transition" :src="image" :alt="`${name} image`">
+  <div class="h-48 w-48 relative rounded-xl bg-gray-300 shadow-sm m-1" >
+    <img class="h-full w-full rounded-xl object-cover object-center hover:opacity-75 transition" :src="image" :alt="`${name} image`">
     <div class="absolute bg-white rounded-md p-2 bottom-2 w-11/12 text-sm mx-auto inset-x-0">
       <p class="truncate text-xs text-gray-500">{{ name }}</p>
       <p class="text-sm font-bold truncate text-gray-700">{{ money }}</p>

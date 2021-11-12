@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center space-x-3 px-4 py-2 rounded text-white" :style="{backgroundColor: theme}">
+  <div class="flex items-center space-x-3 px-4 py-2 rounded text-white cursor-pointer" :style="{backgroundColor: theme}">
     <ShoppingBagIcon class="h-5 w-5 " />
     <p>{{ value }}</p>
   </div>
