@@ -17,11 +17,9 @@
           <Search type="search" v-model="keyword" />
       </header>
       <section class="absolute bottom-0 inset-x-0 top-56 px-4">
-        <div class="px-24 py-8 ">
-          <!-- <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
-          v-bind="product" :image="product.images[0]" :theme="user.brandColor"/> -->
-          <Product v-for="num in 3" :key="num" @add="addToCart(products[0])"
-          v-bind="products[0]" :image="products[0].images[0]" :theme="user.brandColor"/>
+        <div class="px-2 md:px-8 lg:px-16 py-8 ">
+          <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
+          v-bind="product" :image="product.images[0]" :theme="user.brandColor"/>
         </div>
       </section>
     </section>
