@@ -1,5 +1,5 @@
 <template>
-  <div class="h-48 w-48 relative rounded-xl bg-gray-200 shadow-sm m-1">
+  <div class="h-48 w-48 relative rounded-xl bg-gray-300 shadow-sm m-1">
   <!-- @click="$router.push({ path: '/', query: { product: slug }})" -->
     <img class="h-full w-full rounded-lg object-cover object-center hover:opacity-75 transition" :src="image" :alt="`${name} image`">
     <div class="absolute bg-white rounded-md p-2 bottom-2 w-11/12 text-sm mx-auto inset-x-0">

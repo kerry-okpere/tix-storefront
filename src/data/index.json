@@ -17,7 +17,87 @@
         "id": "#001",
         "name": "Tote Bag",
         "description": "This is a custom Tote bag",
-        "slug": "tite-bag",
+        "slug": "tote-bag",
+        "quantity": 40,
+        "price": {
+          "value": "22000",
+          "currency": "NGN"
+        },
+        "category": "bag",
+        "images": [
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+        ]
+      },
+      {
+        "id": "#002",
+        "name": "Face cap",
+        "description": "This is a custom Face Cap",
+        "slug": "face-cap",
+        "quantity": 40,
+        "price": {
+          "value": "4000",
+          "currency": "NGN"
+        },
+        "category": "cap",
+        "images": [
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+        ]
+      },
+      {
+        "id": "#003",
+        "name": "Tee shirt",
+        "description": "This is a custom Tee Shirt",
+        "slug": "tee-shirt",
+        "quantity": 40,
+        "price": {
+          "value": "5000",
+          "currency": "NGN"
+        },
+        "category": "bag",
+        "images": [
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+        ]
+      },
+      {
+        "id": "#004",
+        "name": "Wrist band",
+        "description": "This is a custom Wrist band",
+        "slug": "wrist-band",
+        "quantity": 40,
+        "price": {
+          "value": "200",
+          "currency": "NGN"
+        },
+        "category": "bag",
+        "images": [
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+        ]
+      },
+      {
+        "id": "#005",
+        "name": "Nose mask",
+        "description": "This is a custom Nose mask",
+        "slug": "nose-mask",
+        "quantity": 40,
+        "price": {
+          "value": "500",
+          "currency": "NGN"
+        },
+        "category": "bag",
+        "images": [
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+        ]
+      },
+      {
+        "id": "#001",
+        "name": "Tote Bag",
+        "description": "This is a custom Tote bag",
+        "slug": "tote-bag",
         "quantity": 40,
         "price": {
           "value": "22000",

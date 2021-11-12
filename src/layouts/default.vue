@@ -17,8 +17,8 @@
           <Search type="search" v-model="keyword" />
       </header>
       <section class="absolute bottom-0 inset-x-0 top-56 px-4">
-        <div class="px-2 md:px-8 lg:px-16 py-8 ">
-          <Product v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
+        <div class="products px-2 md:px-8 lg:px-16 py-8 max-w-5xl">
+          <Product class="products__item" v-for="product in filteredProduct" :key="product.id" @add="addToCart(product)"
           v-bind="product" :image="product.images[0]" :theme="user.brandColor"/>
         </div>
       </section>
@@ -93,3 +93,14 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  grid-gap: 1rem;
+  margin: 0 auto;
+  &-item{
+    margin: 0 auto;
+  }
+}
+</style>
