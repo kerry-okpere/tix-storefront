@@ -4,24 +4,8 @@ import data from "../data";
 export default createStore({
   state: {
     cart: [
-      {
-        count: 1,
-        "id": "#001",
-        "name": "Tote Bag",
-        "description": "This is a custom Tote bag",
-        "slug": "tite-bag",
-        "quantity": 40,
-        "price": {
-          "value": "22000",
-          "currency": "NGN"
-        },
-        "category": "bag",
-        "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
-        ]
-      }
     ],
+    products: [],
     user: {},
   },
   getters: {
