@@ -41,8 +41,9 @@
         },
         "category": "cap",
         "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/claudio-schwarz-PH8GUKG-Do0-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/dave-goudreau-FEx5z_k0hss-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/glodi-miessi-da7agzWCFiw-unsplash.jpg"
         ]
       },
       {
@@ -55,10 +56,10 @@
           "value": "5000",
           "currency": "NGN"
         },
-        "category": "bag",
+        "category": "clothing",
         "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/faith-yarn-Wr0TpKqf26s-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/keagan-henman-xPJYL0l5Ii8-unsplash.jpg"
         ]
       },
       {
@@ -71,10 +72,11 @@
           "value": "200",
           "currency": "NGN"
         },
-        "category": "bag",
+        "category": "accessories",
         "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/onur-binay-4401uqU9bf8-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/phillip-goldsberry-9FIzQ5EeDck-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/polly-alexandra-iu2VZLlzf1o-unsplash.jpg"
         ]
       },
       {
@@ -87,26 +89,25 @@
           "value": "500",
           "currency": "NGN"
         },
-        "category": "bag",
+        "category": "clothing",
         "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/vera-davidova-cuzH5S-8ZOQ-unsplash.jpg",
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/masao-mask-675xWpvsArU-unsplash.jpg"
         ]
       },
       {
         "id": "#005",
-        "name": "Tote Bag",
-        "description": "This is a custom Tote bag",
-        "slug": "tote-bag",
-        "quantity": 40,
+        "name": "Jotter",
+        "description": "This is a custom Jotter",
+        "slug": "jotter",
+        "quantity": 2,
         "price": {
-          "value": "22000",
+          "value": "1000",
           "currency": "NGN"
         },
-        "category": "bag",
+        "category": "book",
         "images": [
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/rahul-bhogal-lihCTIOP28U-unsplash.jpg",
-          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/tereza-ruba-TK-rrTgYqzo-unsplash.jpg"
+          "https://storage.googleapis.com/nuxt-todo-bbc4a.appspot.com/interview-tests/tix-storefront/studio-media-9DaOYUYnOls-unsplash.jpg"
         ]
       }
     ],
