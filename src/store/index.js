@@ -44,6 +44,9 @@ export default createStore({
     },
     deleteProduct(state, product) {
       state.cart = state.cart.filter(({id}) => id !== product.id)
+    },
+    clearCart(state){
+      state.cart = []
     }
   },
   actions: {

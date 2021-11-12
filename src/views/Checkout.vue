@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="md:order-1 ">
-      <form class="md:px-6 lg:px-10 xl:pr-32">
+      <form class="px-8 lg:px-10 xl:pr-32">
         <div class="py-2.5 text-sm text-gray-700 flex space-x-1">
           <router-link :to="`/${user.slug}`" :style="{color: user.brandColor}">Shop / </router-link> 
           <router-link to="/cart" :style="{color: user.brandColor}"> Cart </router-link> 
@@ -61,15 +61,27 @@
       </form>
     </div>
   </div>
+  <Modal :visible="visible" @close="continueShop" width="450px">
+    <div class="text-center py-10">
+      <CheckCircleIcon class="h-32 w-32 text-green-600 inline-block" />
+      <div class="pt-4 pb-6">
+        <p class="text-gray-700">Payment Successful</p>
+        <p class="text-xs text-gray-400">Thank You for your payment.</p>
+      </div>
+      <Button title="Continue Shopping" @click="continueShop" :disabled="btnLoading" :theme="user.brandColor" />
+    </div>
+  </Modal>
 </template>
 <script>
 import ProductList from '@/components/ProductList/index.vue'
 import Button from '@/components/Button/index.vue'
+import Modal from '@/components/Modal/index.vue'
 import Input from '@/components/Input/index.vue'
-import { onMounted, reactive, computed, toRefs } from 'vue'
+import { reactive, computed, toRefs, watch} from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { formatter } from "@/utils/getData.js"
+import { CheckCircleIcon } from '@heroicons/vue/solid'
 
 export default {
   setup() {
@@ -109,23 +121,29 @@ export default {
         state.visible = true
       }, 2000);
     }
-    
-    onMounted(() => {
-      if(store.state.cart.length < 1) {
-        router.push(`/my-shop`)
-      }
-    })
+    const continueShop = () => {
+      state.visible = true
+      store.commit('clearCart')
+    }
+
+    watch(() => store.state.cart, (newValue) => {
+      console.log(newValue.length)
+      if (newValue.length < 1) router.push(`/my-shop`)
+    }, { immediate: true });
 
     return {
       ...toRefs(state),
       formatter,
-      showModal
+      showModal,
+      continueShop
     }
   },
   components: {
     ProductList,
     Button,
-    Input
+    Input,
+    CheckCircleIcon,
+    Modal
   }
 }
 </script>
