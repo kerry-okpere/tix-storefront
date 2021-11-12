@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 export default {
   props: {
     name: {
@@ -33,6 +33,10 @@ export default {
     const selectedImg = ref('')
     const currentImage = computed(() => {
       return selectedImg.value == '' ? props.images[0] : selectedImg.value
+    })
+
+    onMounted(() => {
+      console.log('handle reset')
     })
 
     return {

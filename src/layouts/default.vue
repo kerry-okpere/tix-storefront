@@ -105,7 +105,7 @@ export default {
     }
     const increaseBy = (product, count=1) => {
       increaseCartBy(product, count)
-      state.visible = false
+      closeModal()
     }
     const increaseCartBy = (product, count) => {
       const index = store.state.cart.findIndex(({id}) => id === product.id)
@@ -135,6 +135,7 @@ export default {
     const closeModal = () => {
       router.push('/')
       state.visible = false
+      state.currentProduct = {}
     }
 
     // created
