@@ -127,7 +127,6 @@ export default {
     }
 
     watch(() => store.state.cart, (newValue) => {
-      console.log(newValue.length)
       if (newValue.length < 1) router.push(`/my-shop`)
     }, { immediate: true });
 

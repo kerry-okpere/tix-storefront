@@ -34,13 +34,12 @@ export default createStore({
     addToCart(state, product) {
       state.cart.push(product)
     },
-    increaseProductCount(state, productID) {
-      const index = state.cart.findIndex(({id}) => id === productID)
-      if(index >= 0) state.cart[index].count++
-    },
-    decreaseProductCount(state, productID) {
-      const index = state.cart.findIndex(({id}) => id === productID)
-      if(index >= 0) state.cart[index].count--
+    increaseCartBy(state, payload){
+      const { id, count } = payload
+      const index = state.cart.findIndex(product => product.id === id)
+      if(index >= 0) {
+        state.cart[index].count = state.cart[index].count + count
+      }
     },
     deleteProduct(state, product) {
       state.cart = state.cart.filter(({id}) => id !== product.id)
@@ -55,7 +54,7 @@ export default createStore({
         setTimeout(() => {
           commit('setUser', data.users.data)
           resolve(data.users.data);
-        }, 2000);
+        }, 500);
       });
     },
     GET_PRODUCTS({ commit }) {

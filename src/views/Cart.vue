@@ -14,7 +14,7 @@
       <div class="flex flex-col items-stretch max-w-xl mx-auto" v-if="$store.state.cart.length">
         <ProductList class="w-full" v-for="(product, index) in $store.state.cart" :key="product.id" v-bind="product" 
         :amount="product.count" :theme="user.brandColor" :image="product.images[0]" :borderBottom="index === $store.state.cart.length-1"
-        @add="addQuanity(product)" @reduce="reduceQuanity(product)" @removeItem="removeProduct(product)" />
+        @add="increaseBy(product, 1)" @reduce="increaseBy(product, -1)" @removeItem="removeProduct(product)" />
         <div class="flex justify-between py-12 w-full">
           <h4 class="font-bold">Subtotal</h4>
           <p>{{ formatter.format($store.getters.totalCart) }}</p>
@@ -63,11 +63,11 @@ export default {
     const getUser = () => {
       if(Object.keys(store.state.user).length < 1) fetchUser()
     }
-    const addQuanity = product => {
-      store.commit('increaseProductCount', product.id)
-    }
-    const reduceQuanity = product => {
-      store.commit('decreaseProductCount', product.id)
+    const increaseBy = (product, count) => {
+      store.commit('increaseCartBy', {
+        id: product.id,
+        count
+      })
     }
     const removeProduct = product => {
       store.commit('deleteProduct', product)
@@ -76,9 +76,8 @@ export default {
     getUser()
     return {
       ...toRefs(state),
-      addQuanity,
-      reduceQuanity,
       removeProduct,
+      increaseBy,
       formatter
     }
   },
