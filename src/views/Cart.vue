@@ -8,7 +8,6 @@
       <h1 class="text-4xl font-extrabold text-center mt-20 mb-12">Shopping Cart</h1>
       <div v-if="$store.state.cart.length < 1" class="md:w-1/3 flex flex-col items-stretch mx-auto text-center py-32">
         <p class="text-lg text-gray-700 py-8">Your Cart is Empty</p>
-        <!-- use user info for link -->
         <Button title="Continue Shopping" @click="$router.push(`/${user.slug}`)" :theme="user.brandColor" />
       </div>
       
@@ -23,7 +22,11 @@
         <Button title="Checkout" @click="$router.push('/checkout')" :theme="user.brandColor" />
 
         <div class="py-4 w-full text-center">
-          or <router-link :to="`/${user.slug}`" class="font-semibold " :style="{color: user.brandColor}">Continue Shopping</router-link>
+          or 
+          <router-link :to="`/${user.slug}`" class="font-semibold " :style="{color: user.brandColor}">
+            Continue Shopping 
+            <ArrowNarrowRightIcon class="h-5 w-5 inline-block" :style="{color: user.brandColor}"/>
+          </router-link>
         </div>
       </div>
     </section>
@@ -34,7 +37,8 @@ import ProductList from '@/components/ProductList/index.vue'
 import Button from '@/components/Button/index.vue'
 import { useStore } from 'vuex'
 import { computed, reactive, toRefs } from 'vue'
-import { formatter } from "@/utils/getData.js"
+import { formatter } from '@/utils/getData.js'
+import { ArrowNarrowRightIcon } from '@heroicons/vue/solid'
 
 export default {
   setup() {
@@ -80,7 +84,8 @@ export default {
   },
   components: {
     ProductList,
-    Button
+    Button,
+    ArrowNarrowRightIcon
   }
 }
 </script>
