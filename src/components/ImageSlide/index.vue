@@ -35,10 +35,6 @@ export default {
       return selectedImg.value == '' ? props.images[0] : selectedImg.value
     })
 
-    onMounted(() => {
-      console.log('handle reset')
-    })
-
     return {
       selectedImg,
       currentImage
